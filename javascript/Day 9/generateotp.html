@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>OTP generation</h2>
+    <script type="text/javascript">
+        var num = parseInt(prompt("Number of digits: "))
+        function generateotp() {
+            if (num == 4 || num == 6){
+                var digits = '0123456789';
+                let OTP = '';
+                for(let i=0; i < num; i++){
+                    OTP += digits[Math.floor(Math.random() * 10)];
+                }
+                return OTP;
+            }
+            else{
+                alert("OTP can be only 4 or 6 digits");
+            }
+        }
+        document.write("OTP: " +generateotp());
+    </script>
+</body>
+</html>
