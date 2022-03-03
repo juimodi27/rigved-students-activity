@@ -9,51 +9,33 @@
 <body>
     <h2>Javascript Form</h2>
     <form name="myform" method="post" autocomplete="off" action="#" onsubmit="return validateform()">
-        First name: <input type="text" name="fname"> <br />
-        Last name: <input type="text" name="lname"> <br />
-        Password: <input type="password" name="pass1"> <br />
-        Confirm Password: <input type="password" name="pass2"> <br />
-        Gender: <input type="radio" name="gender" value="M"> MALE
-            <input type="radio" name="gender" value="F"> FEMALE <br />
-        Skills <input type="checkbox" name="skills" value="JS"> Javascript
+        <label>
+            First name: <input type="text" name="fname">
+        </label>
+        <br />
+        <label>
+            Last name: <input type="text" name="lname">
+        </label>
+        <br />
+        <label>
+            Password: <input type="password" name="pass1"> <br />
+            Confirm Password: <input type="password" name="pass2">
+        </label>
+        <br />
+        <label>
+            Gender: <input type="radio" name="gen" value="M"> MALE
+            <input type="radio" name="gen" value="F"> FEMALE    
+        </label>
+        <br />
+        <label>
+            Skills <input type="checkbox" name="skills" value="JS"> Javascript
             <input type="checkbox" name="skills" value="HTML"> Python
-            <input type="checkbox" name="skills" value="Angular"> Angular <br />
+            <input type="checkbox" name="skills" value="Angular"> Angular 
+        </label>
+        <br />
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
     </form>
-    <script type="text/javascript">
-        function validateform(){  
-            var fullname=document.myform.fname.value; 
-            var lastname=document.myform.lname.value;  
-              
-        if (fullname.length < 3){  
-            alert("Name should be grater than 3 characters");  
-            return false;
-        }else if (lastname.length < 1) {
-            alert("Last name should be more then 1 character")
-            return false;
-        }
-            var firstpassword=document.myform.pass1.value;  
-            var secondpassword=document.myform.pass2.value;  
-
-        if(firstpassword.length < 3) {
-            alert("Password must be at least 3 characters long.");  
-            return false;
-        }
-        if(firstpassword==secondpassword){  
-            return true;  
-        } else{  
-            alert("password must be same!");  
-            return false;  
-        }  
-       /*var Gender=document.getElementById("errot").checked
-        ErrorText = "";
-        if((form.gender[0].checked == false) && (form.gender[1].checked == false)){
-            alert("Gender must be selected")
-            return false;
-        }
-        if (ErrorText= "") { form.submit() }*/
-    }
-    </script>
+    <script type="text/javascript" src="formscript.js"></script>
 </body>
 </html>
