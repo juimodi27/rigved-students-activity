@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested_Objects</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Players Information Table</h1> 
+    <table border =  2px; cellpadding="10"; align="center">
+        <thead style="background-color: bisque;">
+            <tr>
+                <th>Customer ID</th>
+                <th>Full Name</th>
+                <th>State</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody id="players"></tbody>
+    </table>
+    <script type="text/javascript">
+        var list=[
+            {id:12345, firstname:'Sachin', lastname:'Tendulkar', address:{state:'Maharshtra',city:'Mumbai'}},
+            {id:28845, firstname:'Rahul', lastname:'Dravid', address:{state:'Karnataka',city:'Bangalore'}},
+            {id:42446, firstname:'Rohit', lastname:'Sharma', address:{state:'Maharshtra',city:'Pune'}}
+        ]
+        var table = "<tbody>";
+      for (i = 0; i < list.length; i++) {
+        table += "<tr>";
+        table += "<td>" + list[i].id + "</td>";
+        table += "<td>" + list[i].firstname + " " + list[i].lastname + "</td>";
+        table += "<td>" + list[i].address.state + "</td>";
+        table += "<td>" + list[i].address.city + "</td>";
+        table += "</tr>";
+      }
+      table += "</tbody>";
+      document.getElementById("players").innerHTML = table;
+    </script>
+</body>
+</html>
