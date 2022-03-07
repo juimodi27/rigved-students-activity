@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<canvas id="c2" width="600" height="600" style="border: 2px solid black;">
+</canvas>
+<script type="text/javascript">
+var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+
+        var arcWidth = 40;
+        var radius =  1* arcWidth;
+
+        var ele = document.getElementById("c2");
+                var context = ele.getContext("2d");
+                ele.width = (radius + (colors.length-0.5) * arcWidth) * 2;
+                ele.height = (radius + (colors.length-1) * arcWidth);
+
+        var drawArc = function(color){
+        context.beginPath();
+        context.arc(ele.width/2, ele.height + arcWidth/2, radius, Math.PI, 2*Math.PI);
+                context.lineWidth = arcWidth;
+                context.strokeStyle = color;
+                context.stroke();
+                context.closePath();
+                radius += arcWidth;
+        };
+
+        colors.reverse().forEach( drawArc );
+   
+</script>
+</body>
+</html>
