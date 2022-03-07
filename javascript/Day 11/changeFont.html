@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p id = 'p1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente dolorum cum veniam ipsum rerum labore et culpa nesciunt quas sequi? Nobis et praesentium recusandae ab neque consequatur architecto exercitationem debitis?</p>
+        <button onclick = 'increaseFont()'>Increase Font</button>
+        <button onclick="decreaseFont()">Decrease Font</button>
+        <script type = 'text/javascript'>
+            function increaseFont() {
+                var ele = document.getElementById('p1');
+                ele.style.fontSize = "20px"
+            }
+            function decreaseFont() {
+                var ele = document.getElementById('p1');
+                ele.style.fontSize = "10px"
+            }
+        </script>
+    </div>
+</body>
+</html>
