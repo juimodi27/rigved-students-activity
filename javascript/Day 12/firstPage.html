@@ -7,20 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="name" autocomplete="off">
-    <input type="number" id="age">
-    <input type = "button" value = "store" onclick="storeUser()">
-    <a href = "secondPage.html">Retrieve Data</a>
+    Enter Name: <input type="text" id="name" autocomplete="off"> <br /><br />
+    Enter Age: <input type="number" id="age"> <br /><br />
+    <input type = "button" value = "store" onclick="storeUser()"> <br /><br />
+    <a href = "secondPage.html">Next</a>
     <script type = "text/javascript">
         function storeUser() {
-            
             var input1 = document.getElementById('name').value;
             var input2 = document.getElementById('age').value;
             if(input1.length < 1 || input2.length < 1) {
                 alert("please enter name and age");
             } else {
                 sessionStorage.setItem('user', input1);
-                localStorage.setItem('user2', input2);
+                sessionStorage.setItem('user2', input2);
             }
         }
     </script>
