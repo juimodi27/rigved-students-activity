@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter Name: <input type="text" id="name" autocomplete="off"> <br /><br />
+    Enter Age: <input type="number" id="age"> <br /><br />
+    <input type = "button" value = "Save" onclick="storeUser()">
+    <script>
+        function storeUser() {
+            var input1 = document.getElementById('name').value;
+            var input2 = document.getElementById('age').value;
+            try {
+                if(parseInt(input2) < 18 || parseInt(input2) > 60) {
+                    alert('Age must be between 18 and 60')
+                }
+                else {
+                    alert('All Good')
+                }
+            } catch(error) {
+                alert(error)
+            }
+        }    
+    </script>
+</body>
+</html>
