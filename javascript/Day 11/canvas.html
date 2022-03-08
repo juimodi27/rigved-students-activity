@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c1" width="400" height = "400" style="border:2px solid"></canvas>
+    <canvas id="c2" width="400" height = "400" ></canvas>
+    <script type="text/javascript">
+        // creating the chess board
+        var ctx1 = document.getElementById('c1').getContext('2d');
+        for(var x = 0; x < 8; x++) {
+            for(var y = 0; y < 8; y++) {
+                if((x + y) % 2 == 0) {
+                    ctx1.fillStyle = 'black';
+                    ctx1.fillRect(x * 50, y * 50, 50, 50);
+                }
+            }
+        }
+        var ctx2 = document.getElementById('c2').getContext('2d');
+        var colors = ["violet", "indigo", "blue", "green", "yellow", "orange", "red", "white"];
+        var radius = 200;
+        for(var i = 0; i < colors.length; i++) {
+            ctx2.beginPath();
+            ctx2.fillStyle = colors[i];
+            ctx2.arc(200, 200, radius, 0, Math.PI, true);
+            ctx2.fill();
+            radius = radius - 20;
+        }
+    </script>
+</body>
+</html>
