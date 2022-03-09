@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Iterator function forEach and map</h2>
+    <script type = 'text/javascript'>
+        var items = [1, 2, 3, 4, 5];
+        document.write("<p>Items: "+items+"</p>");
+        items.forEach(function(v, i){
+            document.write('<p>For each: '+v+' at '+i+'</p>')
+        });
+       document.write('<p>Done</p>');
+       var anotherItems = items.map(function(v, i) {
+            return v * i;
+       }); 
+       document.write("<p>Another Items: "+anotherItems+"</p>");
+    </script>
+</body>
+</html>

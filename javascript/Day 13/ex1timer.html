@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Understanding callback with timer functions</h2>
+    <div id = 'i1'></div>
+    <div id = 'i2'></div>
+    <script type = 'text/javascript'>
+        var ele1 = document.getElementById('i1');
+        setTimeout(test, 3000);
+        function test() {
+            var ele2 = document.getElementById('i2');
+            ele2.innerHTML = 'Hope everyone are fine';
+            console.log('updated i2')
+        }
+        ele1.innerHTML = 'Hello World';
+        console.log('updated i1'); // i2 prints after 3s or before 3s
+    </script>
+</body>
+</html>

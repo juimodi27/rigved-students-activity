@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function add(a,...b) {
+            var sum = a;
+            var min = a;
+            var max = a;
+            for(i = 0; i < b.length; i++) {
+                sum += b[i];
+                if(min > b[i]) {
+                    min = b[i];
+                }
+                else if(max < b[i]) {
+                    max = b[i];
+                }
+            }
+            document.write('Sum = '+sum+'<br />');
+            document.write('Min no. = '+min+'<br />');
+            document.write('Max no. = '+max+'<br />');
+        }
+        add(10, 20, 30, 5, 15);
+    </script>
+</body>
+</html>
