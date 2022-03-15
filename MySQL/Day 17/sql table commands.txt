@@ -1,0 +1,39 @@
+# Creating Database
+create database rigved;
+show databases;
+use rigved;
+show tables;
+
+# Creating Table
+create table employee(id int primary key,name varchar(40) not null,age int,check (age>18 and age<60),email varchar(40) unique);
+show tables;
+
+# age - check constraint which must accept value between 18 and 60
+insert into employee values(100,'alex',10,'alex@gmail.com');
+insert into employee values(200,'bruce',61,'bruce@gmail.com');
+insert into employee values(100,'alex',22,'alex@gmail.com');
+select * from employee;
+
+# email - unique constraint
+insert into employee values(200,'bruce',40,'alex@gmail.com');
+
+# Alter table add two new columns pan and aadhaar
+alter table employee add column pan varchar(10), add column aadhaar bigint;
+desc employee;
+
+# Alter table and add unique constraints to pan and aadhaar
+alter table employee add constraint uq_pan unique key (pan),add constraint uq_aadhaar unique key (aadhaar);
+select * from employee;
+
+# pan and aadhaar - unique constraint
+insert into employee values(200,'bruce',40,'bruce@gmail.com','HOPE1234J',795415483025);
+insert into employee values(300,'charles',45,'charles@gmail.com','RJSJJVJ136',795465788425);
+insert into employee values(400,'david',55,'david@gmail.com','RJSJJVJ136',795465788425);
+
+# Alter table and remove the pan and aadhaar columns
+alter table employee drop column pan, drop column aadhaar;
+select * from employee;
+
+# removing the columns - pan and aadhaar
+drop table employee;
+show tables;

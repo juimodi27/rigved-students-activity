@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Object values and entries</h2>
+    <script type = "text/javascript">
+        let emp = {id: 100, name : "Raj"};
+        document.write(Object.entries(emp));
+        document.write("<br/>");
+        document.write(Object.values(emp));
+        // entries & values both gives array of keys and values
+        for(let v of Object.values(emp)) {
+            document.write(`<p>Value: ${v}</p>`);
+        }
+        // for entries
+        for(let [k, v] of Object.entries(emp)) {
+            document.write(`<p>${k}: ${v}</p>`)
+        }
+    </script>
+</body>
+</html>
