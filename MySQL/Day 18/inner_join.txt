@@ -1,0 +1,74 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| rigved             |
+| sys                |
++--------------------+
+5 rows in set (0.05 sec)
+
+mysql> use rigved;
+Database changed
+mysql> create table student (Roll_no int primary key, Name varchar(20), Age int);
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> insert into student values (1,'Raj',20),(2,'Ramesh',20),(3,'Ravi',21),(4,'Suraj',22);
+Query OK, 4 rows affected (0.03 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++---------+--------+------+
+| Roll_no | Name   | Age  |
++---------+--------+------+
+|       1 | Raj    |   20 |
+|       2 | Ramesh |   20 |
+|       3 | Ravi   |   21 |
+|       4 | Suraj  |   22 |
++---------+--------+------+
+4 rows in set (0.00 sec)
+
+mysql> create table marks (M_Id int primary key, Physics int, Maths int, Chemistry int, Student_RollNo int, foreign key(Student_RollNo) references student(Roll_no));
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> desc marks;
++----------------+------+------+-----+---------+-------+
+| Field          | Type | Null | Key | Default | Extra |
++----------------+------+------+-----+---------+-------+
+| M_Id           | int  | NO   | PRI | NULL    |       |
+| Physics        | int  | YES  |     | NULL    |       |
+| Maths          | int  | YES  |     | NULL    |       |
+| Chemistry      | int  | YES  |     | NULL    |       |
+| Student_RollNo | int  | YES  | MUL | NULL    |       |
++----------------+------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert into marks values(11,70,80,70,2),(22,80,80,80,1),(33,90,90,70,3),(44,88,88,77,4);
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from marks;
++------+---------+-------+-----------+----------------+
+| M_Id | Physics | Maths | Chemistry | Student_RollNo |
++------+---------+-------+-----------+----------------+
+|   11 |      70 |    80 |        70 |              2 |
+|   22 |      80 |    80 |        80 |              1 |
+|   33 |      90 |    90 |        70 |              3 |
+|   44 |      88 |    88 |        77 |              4 |
++------+---------+-------+-----------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> select s.Roll_no RollNo,s.name Name,m.physics Physics,m.maths Maths,m.chemistry Chemistry, (Physics+Maths+Chemistry) Total, round((Physics+Maths+Chemistry)/3,2) Average from student s inner join marks m on s.Roll_no=m.Student_RollNo;
++--------+--------+---------+-------+-----------+-------+---------+
+| RollNo | Name   | Physics | Maths | Chemistry | Total | Average |
++--------+--------+---------+-------+-----------+-------+---------+
+|      1 | Raj    |      80 |    80 |        80 |   240 |   80.00 |
+|      2 | Ramesh |      70 |    80 |        70 |   220 |   73.33 |
+|      3 | Ravi   |      90 |    90 |        70 |   250 |   83.33 |
+|      4 | Suraj  |      88 |    88 |        77 |   253 |   84.33 |
++--------+--------+---------+-------+-----------+-------+---------+
+4 rows in set (0.01 sec)
+
+mysql>
