@@ -1,0 +1,77 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 30
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use rigved;
+Database changed
+mysql> delimiter $$
+mysql> create table person(ID int primary key, NAME varchar(20), GENDER varchar(10)); $$
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> select * from person $$
+Empty set (0.01 sec)
+
+mysql> insert into person values(10, 'Raj', 'Male'), (11, 'Alia', 'Female'); $$
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from person $$
++----+------+--------+
+| ID | NAME | GENDER |
++----+------+--------+
+| 10 | Raj  | Male   |
+| 11 | Alia | Female |
++----+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> drop procedure title;$$
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create procedure title(IN userid int)
+    -> begin
+    -> declare n varchar(20);
+    -> declare g varchar(10);
+    -> select NAME into n from person where id=userid;
+    -> select GENDER into g from person where id=userid;
+    -> if g = 'Male'
+    -> then update person set NAME = concat('Mr.', n) where id = userid;
+    -> else update person set NAME = concat('Ms.', n) where id = userid;
+    -> end if;
+    -> end $$
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call title(10) $$
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from person $$
++----+--------+--------+
+| ID | NAME   | GENDER |
++----+--------+--------+
+| 10 | Mr.Raj | Male   |
+| 11 | Alia   | Female |
++----+--------+--------+
+2 rows in set (0.00 sec)
+
+mysql> call title(11) $$
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from person $$
++----+---------+--------+
+| ID | NAME    | GENDER |
++----+---------+--------+
+| 10 | Mr.Raj  | Male   |
+| 11 | Ms.Alia | Female |
++----+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql>
+

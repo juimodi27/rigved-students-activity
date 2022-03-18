@@ -1,0 +1,101 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 29
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use rigved;
+Database changed
+mysql> delimiter $$
+mysql> show tables; $$
++------------------+
+| Tables_in_rigved |
++------------------+
+| dept             |
+| emp              |
+| employee         |
+| marks            |
+| product          |
+| product_history  |
+| student          |
+| user             |
+| user_history     |
++------------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from user; $$
++---------+---------+------------+
+| user_id | name    | password   |
++---------+---------+------------+
+|      10 | alex    | gyubqerani |
+|      20 | bruce   | yrgbvnievm |
+|      30 | charles | qytuwgbevm |
+|      40 | david   | hbeafnugmc |
++---------+---------+------------+
+4 rows in set (0.01 sec)
+
+mysql> select * from user_history; $$
+Empty set (0.00 sec)
+
+mysql> create trigger update_user_history
+    -> before update on user for each row
+    -> begin
+    -> insert into user_history values(old.user_id, old.name, old.password, current_time());
+    -> end $$
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> update user set password = 'abcdbrucee' where user_id = 20 $$
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from user; $$
++---------+---------+------------+
+| user_id | name    | password   |
++---------+---------+------------+
+|      10 | alex    | gyubqerani |
+|      20 | bruce   | abcdbrucee |
+|      30 | charles | qytuwgbevm |
+|      40 | david   | hbeafnugmc |
++---------+---------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from user_history; $$
++---------+-------+------------+----------+
+| user_id | name  | password   | time     |
++---------+-------+------------+----------+
+|      20 | bruce | yrgbvnievm | 18:45:04 |
++---------+-------+------------+----------+
+1 row in set (0.00 sec)
+
+mysql> update user set password = 'alexabcdef' where user_id = 10 $$
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from user; $$
++---------+---------+------------+
+| user_id | name    | password   |
++---------+---------+------------+
+|      10 | alex    | alexabcdef |
+|      20 | bruce   | abcdbrucee |
+|      30 | charles | qytuwgbevm |
+|      40 | david   | hbeafnugmc |
++---------+---------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from user_history; $$
++---------+-------+------------+----------+
+| user_id | name  | password   | time     |
++---------+-------+------------+----------+
+|      10 | alex  | gyubqerani | 18:46:19 |
+|      20 | bruce | yrgbvnievm | 18:45:04 |
++---------+-------+------------+----------+
+2 rows in set (0.00 sec)
+
+mysql>
