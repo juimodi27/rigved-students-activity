@@ -1,0 +1,58 @@
+---
+> show dbs;
+admin         0.000GB
+config        0.000GB
+kc28feb22     0.000GB
+kc_25feb22    0.000GB
+kit_25feb22   0.000GB
+kit_25fefb22  0.000GB
+local         0.000GB
+wn_25feb22    0.000GB
+> show databases;
+admin         0.000GB
+config        0.000GB
+kc28feb22     0.000GB
+kc_25feb22    0.000GB
+kit_25feb22   0.000GB
+kit_25fefb22  0.000GB
+local         0.000GB
+wn_25feb22    0.000GB
+> use mydb;
+switched to db mydb
+> db.createCollection("myCollection");
+{ "ok" : 1 }
+> show collections;
+myCollection
+> db.myCollection.insert({_id:12, name:"Alex"});
+WriteResult({ "nInserted" : 1 })
+> db.myCollection.insert({name:"Bruce"});
+WriteResult({ "nInserted" : 1 })
+> db.myCollection.insert({firstname:"Bruce", lastname:"John"});
+WriteResult({ "nInserted" : 1 })
+> db.myCollection.find();
+{ "_id" : 12, "name" : "Alex" }
+{ "_id" : ObjectId("623854c09b52f4199b08e2eb"), "name" : "Bruce" }
+{ "_id" : ObjectId("623854e19b52f4199b08e2ec"), "firstname" : "Bruce", "lastname" : "John" }
+> db.myCollection.insertOne({_id:13, name:"Sachin"});
+{ "acknowledged" : true, "insertedId" : 13 }
+> db.myCollection.insertOne({name:"Vijay"});
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("6238553a9b52f4199b08e2ed")
+}
+> db.myCollection.find();
+{ "_id" : 12, "name" : "Alex" }
+{ "_id" : ObjectId("623854c09b52f4199b08e2eb"), "name" : "Bruce" }
+{ "_id" : ObjectId("623854e19b52f4199b08e2ec"), "firstname" : "Bruce", "lastname" : "John" }
+{ "_id" : 13, "name" : "Sachin" }
+{ "_id" : ObjectId("6238553a9b52f4199b08e2ed"), "name" : "Vijay" }
+> db.myCollection.insertMany([{_id: 33, name : "Rajesh"},{_id: 44, name : "Ajay"},{firstname:"Sourav", lastname:"Ganguly"}]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                33,
+                44,
+                ObjectId("623856499b52f4199b08e2ee")
+        ]
+}
+>

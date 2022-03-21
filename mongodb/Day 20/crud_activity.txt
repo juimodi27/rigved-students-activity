@@ -1,0 +1,84 @@
+Microsoft Windows [Version 10.0.19044.1586]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\0207j>set path=C:\Users\0207j\Downloads\mongodb-windows-x86_64-5.0.6\mongodb-win32-x86_64-windows-5.0.6\bin;%path%
+
+C:\Users\0207j>mongo
+MongoDB shell version v5.0.6
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("690f8ef3-3e74-4d8b-957e-f60c679c18b7") }
+MongoDB server version: 5.0.6
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-03-09T11:17:26.272+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> use mydb;
+switched to db mydb
+> db.createCollection('employee');
+{ "ok" : 1 }
+> db.createCollection('EMPLOYEE');
+{ "ok" : 1 }
+> show collections;
+EMPLOYEE
+employee
+myCollection
+> db.createCollection('user');
+{ "ok" : 1 }
+> show collections;
+EMPLOYEE
+employee
+myCollection
+user
+> db.user.insertMany([
+... {_id:1, name:'Jui', password:'jui123'},
+... {_id:2, name:'Harshad', password:'harsh123'},
+... {_id:3, name:'dhanashree', password:'dhanu123'}
+... ]);
+{ "acknowledged" : true, "insertedIds" : [ 1, 2, 3 ] }
+> db.user.find({_id:2});
+{ "_id" : 2, "name" : "Harshad", "password" : "harsh123" }
+> db.user.find({_id:3});
+{ "_id" : 3, "name" : "dhanashree", "password" : "dhanu123" }
+> db.user.deleteOne({_id:1});
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.user.find();
+{ "_id" : 2, "name" : "Harshad", "password" : "harsh123" }
+{ "_id" : 3, "name" : "dhanashree", "password" : "dhanu123" }
+> db.user.deleteMany({});
+{ "acknowledged" : true, "deletedCount" : 2 }
+> db.user.find();
+> db.user.insertMany([
+... {_id:1, name:'Jui', password:'jui123'},
+... {_id:2, name:'Harshad', password:'harsh123'},
+... {_id:3, name:'dhanashree', password:'dhanu123'}
+... ]);
+{ "acknowledged" : true, "insertedIds" : [ 1, 2, 3 ] }
+> db.user.find();
+{ "_id" : 1, "name" : "Jui", "password" : "jui123" }
+{ "_id" : 2, "name" : "Harshad", "password" : "harsh123" }
+{ "_id" : 3, "name" : "dhanashree", "password" : "dhanu123" }
+> db.user.updateOne({_id:1}, {$set:{'password':'27jui123'}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.user.find();
+{ "_id" : 1, "name" : "Jui", "password" : "27jui123" }
+{ "_id" : 2, "name" : "Harshad", "password" : "harsh123" }
+{ "_id" : 3, "name" : "dhanashree", "password" : "dhanu123" }
+>
