@@ -1,0 +1,64 @@
+Microsoft Windows [Version 10.0.19044.1586]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex1.js
+Hello World
+Hello Alexander
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex2async.js
+z = 50
+end of program
+inside callback
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex3latestEs.js
+Result = 50
+Min value is: -4
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex4require.js
+Str is : Welcome to node
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex5require.js
+Result = 10
+Min = -5
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex6os.js
+Arch: x64
+Platform: win32
+Release: 10.0.19044
+Hostname: LAPTOP-LRT8C8BN
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>npm i readline-sync
+
+added 1 package, and audited 2 packages in 932ms
+
+found 0 vulnerabilities
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex7readline.js
+Enter you name: jui
+Enter your age: 22
+Hello jui, your age is 22
+Enter a number: 5
+Enter another number: 6
+Result = 11
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex8readsync.js
+Hello Everyone!!
+Hope all are fine.
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex9users_readsync.js
+Name: Alex, Age: 33, Gender: Male
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex10writesync.js
+Done...
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex11js_to_json.js
+{ id: 3, name: 'Alex', salary: 35000 }
+{"id":3,"name":"Alex","salary":35000}
+done...
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>node ex12json_to_js.js
+{"id":3,"name":"Alex","salary":35000}
+{ id: 3, name: 'Alex', salary: 35000 }
+Id = 3, Name = Alex, Salary = 35000
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 22>
