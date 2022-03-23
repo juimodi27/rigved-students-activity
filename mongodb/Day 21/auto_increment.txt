@@ -1,0 +1,78 @@
+---
+> show databases;
+admin         0.000GB
+config        0.000GB
+kc28feb22     0.000GB
+kc_25feb22    0.000GB
+kit_25feb22   0.000GB
+kit_25fefb22  0.000GB
+local         0.000GB
+mydb          0.000GB
+wn_25feb22    0.000GB
+> use mydb;
+switched to db mydb
+> db.createCollection("increment");
+{ "ok" : 1 }
+> db.auto.insert({_id:"sr_no", sequence_value:0});
+WriteResult({ "nInserted" : 1 })
+> function getNextValue(sequenceValue) {
+... let sequence = db.auto.findAndModify({
+... query:{_id:sequenceValue},
+... update:{$inc: {sequence_value:1}},
+... new:true
+... });
+... return sequence.sequence_value;
+... }
+> db.auto.insert({"_id":getNextValue("sr_no"), "name":jui, "address":mumbai});
+uncaught exception: ReferenceError: jui is not defined :
+@(shell):1:46
+> db.auto.insert({"_id":getNextValue("sr_no"), "name":"jui", "address":"mumbai"});
+WriteResult({ "nInserted" : 1 })
+> db.auto.insert({"_id":getNextValue("sr_no"), "name":"dhanashree", "address":"nagpur"});
+WriteResult({ "nInserted" : 1 })
+> db.auto.insert({"_id":getNextValue("sr_no"), "name":"ajinkya", "address":"alibagh"});
+WriteResult({ "nInserted" : 1 })
+> db.auto.find();
+{ "_id" : "sr_no", "sequence_value" : 4 }
+{ "_id" : 2, "name" : "jui", "address" : "mumbai" }
+{ "_id" : 3, "name" : "dhanashree", "address" : "nagpur" }
+{ "_id" : 4, "name" : "ajinkya", "address" : "alibagh" }
+>
+
+
+
+
+
+
+
+
+
+> db.createCollection("university");
+{ "ok" : 1 }
+> db.university.insert({_id:"r_no", sequence_value:0});
+WriteResult({ "nInserted" : 1 })
+> function getNextNumber(RollNo) {
+... let sequence = db.university.findAndModify({
+... query:{_id:RollNo},
+... update:{$inc:{sequence_value:1}},
+... new:true
+... });
+... return "ABC" + sequence.sequence_value;
+... }
+> db.university.find();
+{ "_id" : "r_no", "sequence_value" : 0 }
+> db.university.insert({"_id":getNextNumber("r_no"), "name":"jui"});
+WriteResult({ "nInserted" : 1 })
+> db.university.insert({"_id":getNextNumber("r_no"), "name":"harshad"});
+WriteResult({ "nInserted" : 1 })
+> db.university.insert({"_id":getNextNumber("r_no"), "name":"dhanashree"});
+WriteResult({ "nInserted" : 1 })
+> db.university.insert({"_id":getNextNumber("r_no"), "name":"ajinkya"});
+WriteResult({ "nInserted" : 1 })
+> db.university.find();
+{ "_id" : "r_no", "sequence_value" : 4 }
+{ "_id" : "ABC1", "name" : "jui" }
+{ "_id" : "ABC2", "name" : "harshad" }
+{ "_id" : "ABC3", "name" : "dhanashree" }
+{ "_id" : "ABC4", "name" : "ajinkya" }
+>
