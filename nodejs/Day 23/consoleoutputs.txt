@@ -1,0 +1,33 @@
+Microsoft Windows [Version 10.0.19044.1586]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 23>node multiplerecordsSolution.js
+Enter name: jui
+Enter age: 22
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 23>node multiplerecordsSolution.js
+Enter name: dhanashree
+Enter age: 22
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 23>node ex1http.js
+callback2 is executed, server started at 3001
+callback1 is executed, request arrives
+callback1 is executed, request arrives
+^C
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 23>node ex2http.js
+Server is running in 3001
+Request arrives
+Request arrives
+^C
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 23>node ex3http.js
+Server is running in 3001
+^C
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 23>node ex3http.js
+Server is running in 3001
+^C
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 23>node ex4http.js
+Server running at 3001
+[Object: null prototype] { name: 'Jui', age: '22' }
+{"name":"Jui","age":"22"}
+^C
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 23>

@@ -1,0 +1,19 @@
+Microsoft Windows [Version 10.0.19044.1586]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 23>node http.js
+Server running at 3000
+/?name=Jui&age=22
+[Object: null prototype] { name: 'Jui', age: '22' }
+[{"name":"Jui","age":"22"}]
+/favicon.ico
+/?name=Dhanashree&age=22
+[Object: null prototype] { name: 'Dhanashree', age: '22' }
+[{"name":"Jui","age":"22"},{"name":"Dhanashree","age":"22"}]
+/favicon.ico
+/?name=Ajinkya&age=22
+[Object: null prototype] { name: 'Ajinkya', age: '22' }
+[{"name":"Jui","age":"22"},{"name":"Dhanashree","age":"22"},{"name":"Ajinkya","age":"22"}]
+/favicon.ico
+^C
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 23>
