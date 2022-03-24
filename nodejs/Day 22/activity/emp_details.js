@@ -7,5 +7,5 @@ let emp = {id,name,salary};
 console.log(`Hello ${name}, your id is ${id} and salary is ${salary}`);
 
 let message = JSON.stringify(emp);
-fs.writeFileSync("details.json",message.concat("\n"), {flag:'a+'})
+fs.writeFileSync("records.json",message, {flag:'a+'})
 console.log("Done...");

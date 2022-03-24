@@ -1,1 +1,3 @@
-{"id":"1","name":"Alex","salary":"30000"}
+[{"id":"1","name":"alex","salary":"30000"},
+{"id":"2","name":"bruce","salary":"35000"},
+{"id":"3","name":"charles","salary":"30000"}]
