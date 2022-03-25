@@ -1,0 +1,269 @@
+Microsoft Windows [Version 10.0.19044.1586]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\0207j>set path=C:\Users\0207j\Downloads\mongodb-windows-x86_64-5.0.6\mongodb-win32-x86_64-windows-5.0.6\bin;%path%
+
+C:\Users\0207j>mongo
+MongoDB shell version v5.0.6
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("b203b943-fc9c-4f5e-bd6b-6ad1f28b8685") }
+MongoDB server version: 5.0.6
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-03-09T11:17:26.272+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> use mydb;
+switched to db mydb
+> db.createCollection("entries");
+{ "ok" : 1 }
+> db.entries.insertMany([
+... {_id:10, name:"Alex", age:35},
+... {_id:20, name:"Bruce", age:35},
+... {_id:30, name:"Charles", age:36},
+... {_id:40, name:"David", age:33},
+... {_id:50, name:"Edward", age:32},
+... {_id:60, name:"Frank", age:36},
+... {_id:70, name:"Gaurav", age:34},
+... {_id:80, name:"Harshad", age:32}
+... ]);
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                10,
+                20,
+                30,
+                40,
+                50,
+                60,
+                70,
+                80
+        ]
+}
+> db.entries.find();
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 50, "name" : "Edward", "age" : 32 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.updateOne({age:32}, {$set:{name:"Harsh"}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.entries.find();
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find().pretty();
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find({age:35});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+> db.entries.find({},{age:1});
+{ "_id" : 10, "age" : 35 }
+{ "_id" : 20, "age" : 35 }
+{ "_id" : 30, "age" : 36 }
+{ "_id" : 40, "age" : 33 }
+{ "_id" : 50, "age" : 32 }
+{ "_id" : 60, "age" : 36 }
+{ "_id" : 70, "age" : 34 }
+{ "_id" : 80, "age" : 32 }
+> db.entries.find({},{name:1});
+{ "_id" : 10, "name" : "Alex" }
+{ "_id" : 20, "name" : "Bruce" }
+{ "_id" : 30, "name" : "Charles" }
+{ "_id" : 40, "name" : "David" }
+{ "_id" : 50, "name" : "Harsh" }
+{ "_id" : 60, "name" : "Frank" }
+{ "_id" : 70, "name" : "Gaurav" }
+{ "_id" : 80, "name" : "Harshad" }
+> db.entries.find({},{name:1,_id:0});
+{ "name" : "Alex" }
+{ "name" : "Bruce" }
+{ "name" : "Charles" }
+{ "name" : "David" }
+{ "name" : "Harsh" }
+{ "name" : "Frank" }
+{ "name" : "Gaurav" }
+{ "name" : "Harshad" }
+> db.entries.find({},{_id:0});
+{ "name" : "Alex", "age" : 35 }
+{ "name" : "Bruce", "age" : 35 }
+{ "name" : "Charles", "age" : 36 }
+{ "name" : "David", "age" : 33 }
+{ "name" : "Harsh", "age" : 32 }
+{ "name" : "Frank", "age" : 36 }
+{ "name" : "Gaurav", "age" : 34 }
+{ "name" : "Harshad", "age" : 32 }
+> var x = 10;
+> var y = 20;
+> var z = x + y;
+> z;
+30
+> function demo() {
+... return 'hello world';
+... }
+> var x = demo();
+> x;
+hello world
+> var counter = 1;
+> function demo() {
+... counter = counter + 1;
+... return counter;
+... }
+> x = demo();
+2
+> x = demo();
+3
+> x = demo();
+4
+> x = demo();
+5
+> x = demo();
+6
+> new Date();
+ISODate("2022-03-25T10:21:18.616Z")
+> new Date().toLocaleDateString();
+Friday, March 25, 2022
+> db.user.find();
+{ "_id" : 1, "name" : "Jui", "password" : "27jui123" }
+{ "_id" : 2, "name" : "Harshad", "password" : "harsh123" }
+{ "_id" : 3, "name" : "dhanashree", "password" : "dhanu123" }
+> db.entries.find();
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find().sort({name:1});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find().sort({name:-1});
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+> db.entries.find().sort({_id:1});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find().limit(2);
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+> db.entries.find().sort({name:-1}).limit(2);
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+> db.entries.find().count();
+8
+> db.entries.find({$or:[{age:{$gt:35}}, {"name":"Charles"}]});
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+> db.entries.find({$or:[{age:35}, {"name":"Charles"}]});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+> db.entries.find({$and:[{name:"Alex"}, {age:35}]});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+> db.entries.find({$or:[{name:"Alex"}, {age:32}]});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find({age:{$in:[34, 35, 32]}});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find({age:{$lt:35}});
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find({age:{$lte:35}});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find({age:{$gt:32}});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+> db.entries.find({age:{$gte:32}});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find({age:{$ne:35}});
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+> db.entries.find({age:{$exists:true}});
+{ "_id" : 10, "name" : "Alex", "age" : 35 }
+{ "_id" : 20, "name" : "Bruce", "age" : 35 }
+{ "_id" : 30, "name" : "Charles", "age" : 36 }
+{ "_id" : 40, "name" : "David", "age" : 33 }
+{ "_id" : 50, "name" : "Harsh", "age" : 32 }
+{ "_id" : 60, "name" : "Frank", "age" : 36 }
+{ "_id" : 70, "name" : "Gaurav", "age" : 34 }
+{ "_id" : 80, "name" : "Harshad", "age" : 32 }
+>

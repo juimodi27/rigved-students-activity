@@ -1,0 +1,29 @@
+Microsoft Windows [Version 10.0.19044.1586]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 24>nodemon express-postman.js
+[nodemon] 2.0.15
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node express-postman.js`
+Server is running at 3003
+Error: ENOENT: no such file or directory, open 'entries.json'
+    at Object.openSync (node:fs:585:3)
+    at Object.readFileSync (node:fs:453:35)
+    at C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 24\express-postman.js:6:19
+    at Layer.handle [as handle_request] (C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 24\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 24\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 24\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 24\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 24\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 24\node_modules\express\lib\router\index.js:341:12)
+    at next (C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 24\node_modules\express\lib\router\index.js:275:10)
+[nodemon] restarting due to changes...
+[nodemon] starting `node express-postman.js`
+Server is running at 3003
+[nodemon] restarting due to changes...
+[nodemon] starting `node express-postman.js`
+Server is running at 3003
+^C
+C:\Users\0207j\OneDrive\Desktop\rigved\examples\rigved-students-activity\nodejs\Day 24>
