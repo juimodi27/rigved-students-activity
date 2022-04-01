@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Client using Socket IO</h2>
+    <div class="message-container"></div>
+    <div class="input">
+        <input type="text" class="message">
+        <button onclick="sendMessage()">Send Message</button>
+    </div><br>
+    <h2>Day27 - Socket.io (NodeJs) </h2>
+
+    <script type="text/javascript">
+        const socket = io('http://localhost:3000');
+        socket.on('connection');
+
+        socket.on('recieve-message', (msg) => {
+            const div = document.createElement("div");
+            div.textContent = msg;
+            document.querySelector(".message-container").append(div);
+        });
+
+        const sendMessage = () => {
+            const msgInput = document.querySelector(".message");
+            const msg = msgInput.value;
+            socket.emit('send-message', msg);
+        };
+
+    </script>
+</body>
+</html>
