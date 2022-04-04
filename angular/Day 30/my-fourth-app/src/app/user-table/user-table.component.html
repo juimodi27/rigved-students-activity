@@ -1,0 +1,16 @@
+<div>
+    <table border="1px solid black">
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>State</th>
+            <th>City</th>
+        </tr>
+        <tr *ngFor="let u of user">
+            <td>{{u.name | title : u.gender}}</td>
+            <td>{{u.gender}}</td>
+            <td>{{u.address.state}}</td>
+            <td>{{u.address.city}}</td>
+        </tr>
+    </table>
+</div>

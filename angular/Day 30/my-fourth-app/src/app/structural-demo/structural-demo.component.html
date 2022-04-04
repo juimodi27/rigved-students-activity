@@ -1,0 +1,12 @@
+<div>
+    <h2>NgIf Demo</h2>
+    <p *ngIf = "message">Message: {{message}}</p>
+    <p *ngIf = "status">Status: {{status}}</p>
+    <div *ngIf = "exists">Exists: {{exists}}</div>
+    <div *ngIf = "info">Information: {{info}}</div>
+    <h2>NgFor Demo</h2>
+    <div>{{courses}}</div>
+    <ul>
+        <li *ngFor = "let x of courses">{{x}}</li>
+    </ul>
+</div>

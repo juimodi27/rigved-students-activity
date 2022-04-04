@@ -1,0 +1,12 @@
+<div>
+    <p>Username: {{username}}</p>
+    <p>Hello {{username | uppercase}}</p>
+    <p>Default Date: {{birthday}}</p>
+    <p>Formatting Date: {{birthday | date}}</p>
+    <p>Custom Formatting Date: {{birthday | date : 'dd-MM-yyyy'}}</p>
+    <p>Amount: {{amount}}</p>
+    <p>US Currency: {{amount | currency}}</p>
+    <p>US Currency: {{amount | currency: 'INR'}}</p>
+    <h3>Custom pipe size</h3>
+    <p>Length of username: {{username | size}}</p>
+</div>
