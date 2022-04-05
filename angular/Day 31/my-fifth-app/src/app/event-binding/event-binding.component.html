@@ -1,0 +1,9 @@
+<div>
+    Firstname : <input type="text" #first> <br />
+    Lastname : <input type="text" #second> <br />
+    <button (click) = "save(first.value, second.value)">Save</button>
+    <div>
+        <p>Firstname : {{firstname}}</p>
+        <p>Lastname : {{lastname}}</p>
+    </div>
+</div>

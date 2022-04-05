@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row align-items-start">
+        <div class="col">
+            <p>First Name : <input type="text" #first></p>
+            <p>Last Name : <input type="text" #second></p>
+            <button (click)="save(first.value, second.value)">Save</button>
+        </div>
+        <div class="col">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>First Name</td> <td>Last Name</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let arr of array">
+                        <td>{{arr.first}}</td> <td>{{arr.last}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
