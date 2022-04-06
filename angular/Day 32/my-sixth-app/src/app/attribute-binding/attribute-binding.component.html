@@ -1,0 +1,23 @@
+<div>
+    <h2>Demo on attribute binding</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th [attr.rowspan] = "rowspanValue">Name</th>
+                <th [attr.colspan] = "colspanValue">Price</th>
+            </tr>
+            <tr>
+                <th>Rs.</th>
+                <th>Ps.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mobile</td> <td>42000</td> <td>50</td>
+            </tr>
+            <tr>
+                <td>Laptop</td> <td>50000</td> <td>00</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

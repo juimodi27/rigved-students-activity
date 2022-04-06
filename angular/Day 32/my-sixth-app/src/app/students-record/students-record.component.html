@@ -1,0 +1,23 @@
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Roll Number</th>
+                <th>Name</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of students">
+                <td>{{x.rollNo}}</td>
+                <td>{{x.Name}}</td>
+                <td *ngIf="x.marks>=40; else elseBlock">
+                    <p [style]="{'color':'green'}">{{x.marks}}</p>
+                </td>
+                <ng-template #elseBlock>
+                    <p [style]="{'color':'red'}">{{x.marks}}</p>
+                </ng-template>                
+            </tr>
+        </tbody>
+    </table>
+</div>

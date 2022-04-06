@@ -1,0 +1,23 @@
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Brand</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let p of products">
+                <tr >
+                    <td [attr.rowspan]="p.brand.length">{{p.name}}</td>
+                    <td>{{p.brand[0]}}</td>
+                </tr>
+                <ng-container *ngFor="let b of p.brand; let i=index;">
+                    <tr *ngIf="i!=0">
+                        <td>{{b}}</td>
+                    </tr>
+                </ng-container>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

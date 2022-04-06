@@ -1,0 +1,14 @@
+<div>
+    <h2>Two way binding demo</h2>
+    Username : <input type="text" [(ngModel)] = "username"> <br />
+    Username : <input type="text" [(ngModel)] = "username"> <br />
+    <hr />
+    <h2>Two way binding for user</h2>
+    <button (click) = "update()">Update Firstname</button>
+    <br />
+    Firstname : <input type="text" [(ngModel)] = "user.firstname"> <br />
+    Lastname : <input type="text" [(ngModel)] = "user.lastname"> <br />
+    <div>
+        Hello {{user.firstname}} {{user.lastname}}
+    </div>
+</div>
