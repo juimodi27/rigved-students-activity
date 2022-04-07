@@ -19,6 +19,4 @@ export class StudentsRecordComponent implements OnInit {
     {rollNo:5, Name:'Amit', marks: 70},
     {rollNo:6, Name:'Zaheer', marks: 80}
   ]
- 
-  //styleattach={}
 }
