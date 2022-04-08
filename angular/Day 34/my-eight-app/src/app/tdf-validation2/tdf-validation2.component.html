@@ -1,0 +1,31 @@
+<div>
+    <h2>TDF Validation2</h2>
+    <form #user = "ngForm" (ngSubmit) = "handleSubmit(user.value)">
+        <div>
+            Firstname
+            <input type = "text" name = "fn" ngModel #tf1 = "ngModel"
+            autocomplete="off" required minlength="3">
+            <span [hidden] = "tf1.valid || tf1.pristine" class = "text-danger">
+                Firstname must be greathan or equal to 3 characters
+            </span>
+        </div>
+        <div>
+            Lastname
+            <input type = "text" name = "ln" ngModel #tf2 = "ngModel"
+            autocomplete="off" required minlength="2">
+            <span [hidden] = "tf2.valid || tf2.pristine" class = "text-danger">
+                Lastname must be greathan or equal to 2 characters
+            </span>
+        </div>
+        <div>
+            <input type = "submit" value = "submit" [disabled] = "user.invalid" class = "btn btn-primary">
+        </div>
+    </form>
+    <p>Tf1 value: {{tf1.value | json}}</p>
+    <p>Tf1 valid:  {{tf1.valid}}</p>
+    <p>Tf1 pristine:  {{tf1.pristine}}</p>
+
+    <p>Tf2 value: {{tf2.value | json}}</p>
+    <p>Tf2 valid:  {{tf2.valid}}</p>
+    <p>Tf2 pristine:  {{tf2.pristine}}</p>
+</div>

@@ -1,0 +1,29 @@
+<div>
+    <h1>TDF Validaion Demo</h1>
+    <form #login = "ngForm" (ngSubmit) = "handleSubmit(login.value)">
+        <div>
+            Username <input type = "text" name = "un" ngModel autocomplete="off" required>
+        </div>
+        <div>
+            Password <input type = "password" name = "pw" ngModel required>
+        </div>
+        <div>
+            <input type = "submit" value = "Login" [disabled] = "login.invalid">
+        </div>
+    </form>
+    <div class = "text-danger" [hidden] = "login.valid || login.pristine">
+        *Username and Password is mandatory
+    </div>
+    <div>
+        Value: {{login.value | json}}
+    </div>
+    <div>
+        Valid: {{login.valid}}
+    </div>
+    <div>
+        Invalid: {{login.invalid}}
+    </div>
+    <div>
+        Pristine: {{login.pristine}}
+    </div>
+</div>
