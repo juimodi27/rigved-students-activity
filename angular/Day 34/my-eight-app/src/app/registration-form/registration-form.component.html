@@ -21,14 +21,14 @@
             Gender
             <input type="radio" name = "gender" value="male" ngModel #tf3 = "ngModel" required>Male
             <input type="radio" name = "gender" value="female" ngModel #tf3 = "ngModel" required>Female
-            <span [hidden] = "tf3.invalid || tf3.pristine" class="text-danger">*mandatory</span>
+            <span [hidden] = "tf3.valid || tf3.pristine" class="text-danger">*mandatory</span>
         </div>
         <div>
             Skills
             <input type="checkbox" name="skills" value="JS" ngModel #tf4 = "ngModel" required> Javascript
             <input type="checkbox" name="skills" value="HTML" ngModel #tf4 = "ngModel" required> Python
             <input type="checkbox" name="skills" value="Angular" ngModel #tf4 = "ngModel" required> Angular
-            <span [hidden] = "tf4.invalid || tf4.pristine" class="text-danger">*Select atleast one skill</span>
+            <span [hidden] = "tf4.valid || tf4.pristine" class="text-danger">*Select atleast one skill</span>
         </div>
         <div>
             Qualification
@@ -37,7 +37,7 @@
                 <option value="BTech">BTech</option>
                 <option value="BSc">BSc</option>
             </select>
-            <span [hidden] = "tf5.invalid || tf5.pristine" class="text-danger">*Select qualification</span>
+            <span [hidden] = "tf5.valid || tf5.pristine" class="text-danger">*Select qualification</span>
         </div>
         <div>
             Address
