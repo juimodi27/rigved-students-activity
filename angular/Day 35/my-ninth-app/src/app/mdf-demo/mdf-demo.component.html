@@ -1,0 +1,13 @@
+<div>
+    <h2>Simple MDF Demo</h2>
+    <label>
+        Username: <input [formControl] = "username">
+    </label>
+    <hr />
+    <div>
+        {{username | json}}
+    </div>
+    <div>
+        Value: {{username.value}}
+    </div>
+</div>

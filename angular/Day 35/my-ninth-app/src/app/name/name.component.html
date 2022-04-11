@@ -1,0 +1,18 @@
+<div>
+    <label>
+        Firstname: <input [formControl] = "firstname">
+    </label>
+    <br />
+    <label>
+        Lastname: <input [formControl] = "lastname">
+    </label>
+    <hr />
+    <div>
+        {{firstname | json}} <br />
+        {{lastname | json}}
+    </div>
+    <div>
+        Value: {{firstname.value}} <br />
+        Value: {{lastname.value}}
+    </div>
+</div>
