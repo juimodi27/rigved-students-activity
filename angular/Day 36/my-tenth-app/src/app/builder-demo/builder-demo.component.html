@@ -1,0 +1,17 @@
+<div>
+    <h2>Form Builder Demo</h2>
+    <form [formGroup] = "profile" (ngSubmit) = "handleSubmit()">
+        <div>
+            Firstname <input formControlName = "firstname">
+        </div>
+        <div>
+            Lastname <input formControlName = "lastname">
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
+    </form>
+    <div>
+        Profile : {{profile.value | json}}
+    </div>
+</div>

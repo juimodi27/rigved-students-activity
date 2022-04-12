@@ -1,0 +1,35 @@
+<div>
+    <form [formGroup] = "profile" (ngSubmit) = "handleSubmit()">
+        <div>
+            Firstname: 
+            <input type="text" formControlName = "firstname">
+            <span [hidden] = "profile.controls['firstname'].valid || profile.controls['firstname'].pristine" class="text-danger">Firstname is required</span>
+        </div>
+        <div>
+            Lastname: 
+            <input type="text" formControlName = "lastname">
+            <span [hidden] = "profile.controls['lastname'].valid || profile.controls['lastname'].pristine" class="text-danger">Lastname is required</span>
+        </div>
+        <div formGroupName = "address">
+            <h6>Address:</h6>
+            <div>
+                State: 
+                <input type="text" formControlName = "state">
+                <span [hidden] = "profile.controls['address'].get('state')?.valid || profile.controls['address'].get('state')?.pristine" class="text-danger">State is required</span>
+            </div>
+            <div>
+                City: 
+                <input type="text" formControlName = "city">
+                <span [hidden] = "profile.controls['address'].get('city')?.valid || profile.controls['address'].get('city')?.pristine" class="text-danger">City is required</span>
+            </div>
+            <div>
+                Pin: 
+                <input type="number" formControlName = "pin">
+                <span [hidden] = "profile.controls['address'].get('pin')?.valid || profile.controls['address'].get('pin')?.pristine" class="text-danger">Pin must be of 6 numbers</span>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="submit" [disabled] = "profile.invalid">
+        </div>
+    </form>
+</div>
