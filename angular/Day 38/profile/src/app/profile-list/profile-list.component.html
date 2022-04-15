@@ -1,0 +1,29 @@
+<div>
+    <h3>User List</h3>
+    <table *ngIf = "items" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Profile Id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Phone No.</th>
+                <th>Email Id</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Pin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let user of items">
+                <td>{{user.profileId}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user.phoneNo}}</td>
+                <td>{{user.emailId}}</td>
+                <td>{{user.state}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.pin}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

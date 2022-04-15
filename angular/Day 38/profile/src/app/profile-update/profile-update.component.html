@@ -1,0 +1,53 @@
+<div>
+    <h4>Update Form</h4>
+    Enter Id : <input type="number" [formControl] = "id">
+    <input type="button" (click)="getInfo()"  (click)="setProfileValue()" value="Get" >
+</div>
+
+<div>
+    <h3>User Store Form</h3>
+    <form [formGroup]="profileForm" (ngSubmit)="updateForm()">
+        <div>
+            Name:
+            <input type="text" formControlName="name" class="form-control">
+            <span class="text-danger" [hidden]="profileForm.controls['name'].valid || profileForm.controls['name'].pristine">Name is required</span>
+        </div>
+        <div>
+            Gender:
+            <input type="radio" name="gender" value="Male" formControlName="gender" >Male
+            <input type="radio" name="gender" value="Female" formControlName="gender">Female
+            <span class="text-danger" [hidden]="profileForm.controls['gender'].valid || profileForm.controls['gender'].pristine">Gender is required</span>
+        </div>
+        <div>
+            Phone Number:
+            <input type="text" formControlName="phoneNo" class="form-control">
+            <span class="text-danger" [hidden]="profileForm.controls['phoneNo'].valid || profileForm.controls['phoneNo'].pristine">Phone number must of 10 digits</span>
+        </div>
+        <div>
+            Email Id:    
+            <input type="text" formControlName="emailId" class="form-control">
+            <span class="text-danger" [hidden]="profileForm.controls['emailId'].valid || profileForm.controls['emailId'].pristine">Email ID is required</span>
+        </div>
+        <div formGroupName="address">
+            <h4>Address Details</h4>
+            <div>
+                State:
+                <input type="text" formControlName="state" class="form-control">
+                <span class="text-danger" [hidden]="profileForm.controls['address'].get('state')?.valid || profileForm.controls['address'].get('state')?.pristine">State is required</span>
+            </div>
+            <div>
+                City:
+                <input type="text" formControlName="city" class="form-control">
+                <span class="text-danger" [hidden]="profileForm.controls['address'].get('city')?.valid || profileForm.controls['address'].get('city')?.pristine">City is required</span>
+            </div>
+            <div>
+                Pin Code:
+                <input type="text" formControlName="pin" class="form-control"> 
+                <span class="text-danger" [hidden]="profileForm.controls['address'].get('pin')?.valid || profileForm.controls['address'].get('pin')?.pristine">Pin Code must be of 6 digits</span>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Save" [disabled]="profileForm.invalid" >
+        </div>
+    </form>     
+</div>

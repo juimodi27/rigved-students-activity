@@ -1,0 +1,17 @@
+<div>
+    <h3>User Store Form</h3>
+    <form [formGroup] = "userForm" (ngSubmit) = "saveForm()">
+        <div>
+            User Id : <input type="number" formControlName = "userId">
+        </div>
+        <div>
+            Name : <input type="text" formControlName = "name">
+        </div>
+        <div>
+            Dob : <input type="date" formControlName = "dob">
+        </div>
+        <div>
+            <input type="submit" value="submit">
+        </div>
+    </form>
+</div>
