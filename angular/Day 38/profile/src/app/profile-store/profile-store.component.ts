@@ -15,6 +15,7 @@ export class ProfileStoreComponent implements OnInit {
   ngOnInit(): void {
   }
   profileForm : FormGroup = this.builder.group({
+    profileId:['', Validators.required],
     name: ['', Validators.required],
     gender: ['', Validators.required],
     phoneNo: ['', Validators.compose(

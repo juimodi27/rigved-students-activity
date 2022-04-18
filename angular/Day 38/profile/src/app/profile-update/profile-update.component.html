@@ -1,12 +1,17 @@
 <div>
     <h4>Update Form</h4>
     Enter Id : <input type="number" [formControl] = "id">
-    <input type="button" (click)="getInfo()"  (click)="setProfileValue()" value="Get" >
+    <input type="button" (click)="getInfo()"  (click)="setProfileValue()" value="Get Id">
 </div>
 
 <div>
     <h3>User Store Form</h3>
     <form [formGroup]="profileForm" (ngSubmit)="updateForm()">
+        <div>
+            Profile Id:
+            <input type="number" formControlName="profileId" class="form-control">
+            <span class="text-danger" [hidden]="profileForm.controls['profileId'].valid || profileForm.controls['profileId'].pristine">Profile Id is required</span>
+        </div>
         <div>
             Name:
             <input type="text" formControlName="name" class="form-control">
@@ -49,5 +54,5 @@
         <div>
             <input type="submit" value="Save" [disabled]="profileForm.invalid" >
         </div>
-    </form>     
+    </form>        
 </div>

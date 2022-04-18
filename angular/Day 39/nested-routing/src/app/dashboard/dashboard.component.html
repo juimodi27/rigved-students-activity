@@ -1,0 +1,11 @@
+<div>
+    <div>
+        <h5 *ngIf = "name">{{name}} Dashboard</h5>
+    </div>
+    <div>
+        <a routerLink = "department">Department</a> |
+        <a routerLink = "library">Library</a> |
+        <a routerLink = "about">About</a>
+    </div>
+    <router-outlet></router-outlet>
+</div>

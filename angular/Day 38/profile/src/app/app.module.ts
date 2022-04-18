@@ -16,7 +16,7 @@ let route : Routes = [
   {path: "usersList", component : ProfileListComponent},
   {path: "delete", component: ProfileDeleteComponent},
   {path: "update", component: ProfileUpdateComponent},
-  {path: "success/:n", component:RegisterSuccessComponent}
+  {path: "success/:uid", component:RegisterSuccessComponent}
 ]
 
 @NgModule({

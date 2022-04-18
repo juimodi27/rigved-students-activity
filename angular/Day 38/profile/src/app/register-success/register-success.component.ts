@@ -7,13 +7,13 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./register-success.component.css']
 })
 export class RegisterSuccessComponent implements OnInit {
-  name: string | undefined = undefined;
+  userId : number | undefined = undefined;
 
   constructor(private _ar : ActivatedRoute) { }
 
   ngOnInit(): void {
     this._ar.params.subscribe((p:Params) => {
-      this.name = p['n']
+      this.userId = p['uid']
     })
   }
 

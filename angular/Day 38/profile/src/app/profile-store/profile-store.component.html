@@ -2,6 +2,11 @@
     <h3>User Store Form</h3>
     <form [formGroup]="profileForm" (ngSubmit)="saveForm()">
         <div>
+            Profile Id:
+            <input type="number" formControlName="profileId" class="form-control">
+            <span class="text-danger" [hidden]="profileForm.controls['profileId'].valid || profileForm.controls['profileId'].pristine">Profile Id is required</span>
+        </div>
+        <div>
             Name:
             <input type="text" formControlName="name" class="form-control">
             <span class="text-danger" [hidden]="profileForm.controls['name'].valid || profileForm.controls['name'].pristine">Name is required</span>
@@ -37,7 +42,7 @@
             <div>
                 Pin Code:
                 <input type="text" formControlName="pin" class="form-control"> 
-                <span class="text-danger" [hidden]="profileForm.controls['address'].get('pin')?.valid || profileForm.controls['address'].get('pin')?.pristine">Pin Code must be of 6 digits</span>                </div>
+                <span class="text-danger" [hidden]="profileForm.controls['address'].get('pin')?.valid || profileForm.controls['address'].get('pin')?.pristine">Pin Code must be of 6 digits</span>                
             </div>
         </div>
         <div>
