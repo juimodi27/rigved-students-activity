@@ -16,7 +16,7 @@ const routes: Routes = [
   {path : "register", component : RegisterComponent},
   {path : "success/:name", component : SuccessComponent, children : [
     {path : "", component : DashboardComponent},
-    {path : "dashboard/:name", component : DashboardComponent, children : [
+    {path : "dashboard", component : DashboardComponent, children : [
       {path :"", component : AboutComponent},
       {path : "about", component : AboutComponent},
       {path : "department", component : DepartmentComponent},
