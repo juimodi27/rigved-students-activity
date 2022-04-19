@@ -1,0 +1,13 @@
+<div>
+    <h3>Find user by Id</h3>
+    <div>
+        Id <input type="number" [formControl] = "_id">
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Get Id" (click) = "handleClick()">
+    </div>
+    <div>
+        <p *ngIf = "user">Id : {{ user | json }}</p>
+    </div>
+</div>
