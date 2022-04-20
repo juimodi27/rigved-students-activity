@@ -1,0 +1,7 @@
+<div>
+    <h3 class="text-center">Delete Data</h3>
+    <div *ngFor="let a of arr">
+        {{a.department}} {{a.employee}} {{a.salary}}
+        <button (click) = "handleDelete(a.department, a.employee, a.salary)" class="btn btn-danger">delete</button>
+    </div>
+</div>

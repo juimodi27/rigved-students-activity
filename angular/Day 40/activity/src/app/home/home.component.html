@@ -1,0 +1,13 @@
+<div class="text-center">
+    <h2 class="text-center">Home</h2>
+    <div *ngIf = "username">
+        <h2>Hello, {{username}}</h2>
+    </div>
+    <div class="btn-group btn-group-justified">
+        <a routerLink = "add" class="btn btn-primary">Add</a>
+        <a routerLink = "details" class="btn btn-primary">Details</a>
+        <a routerLink = "delete" class="btn btn-primary">Delete</a>
+        <a routerLink = "/login" class="btn btn-primary">Logout</a>
+    </div>
+    <router-outlet></router-outlet>
+</div>

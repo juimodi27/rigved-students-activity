@@ -1,0 +1,25 @@
+<div>
+    <h2 class="text-center">Register Page</h2>
+    <div>
+        <form [formGroup]="register" (ngSubmit)="handleRegister()" class="form-control">
+            <div>
+                Username: <input type="text" formControlName="name" class="form-control">
+                <span [hidden]="register.controls['name'].pristine || register.controls['name'].valid" class="text-danger">Username Required</span>
+            </div>
+            <div>
+                Password: <input type="password" formControlName="password" class="form-control">
+                <span [hidden]="register.controls['password'].pristine || register.controls['password'].valid" class="text-danger">Password Required</span>
+            </div>
+            <br />
+            <div class="text-center">
+                <input type="submit" value="Register" [disabled]="register.invalid" class="btn btn-primary mb-3">
+            </div>
+        </form>
+        <br />
+        <div class="text-center">
+            <button class="btn btn-info mb-3">
+                <a routerLink="/login">Login</a>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div>
+    <h3>Add Data</h3>
+    <form [formGroup] = "add" (ngSubmit) = "handleAdd()" class="form-control">
+        <div>
+            Department: <input type="text" formControlName = "department" class="form-control">
+        </div>
+        <br />
+        <div>
+            Employee Name: <input type="text" formControlName = "employee" class="form-control">
+        </div>
+        <br />
+        <div>
+            Salary: <input type="number" formControlName = "salary" class="form-control">
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Add" class="btn btn-primary">
+        </div>
+    </form>
+</div>

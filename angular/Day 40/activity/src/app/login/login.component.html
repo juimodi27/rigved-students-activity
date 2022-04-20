@@ -1,0 +1,22 @@
+<div>
+    <h2 class="text-center">Login</h2>
+    <div class="mb-3 row">
+        <div>
+            <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
+            <input type="text" [formControl] = "username" class="form-control">
+        </div>
+        <div>
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <input type="password" [formControl]="password" class="form-control">
+        </div>
+        <br />
+        <div class="text-center">
+            <input type="submit" value="Login" (click) = "handleLogin()" class="btn btn-primary mb-3">
+        </div>
+        <div class="text-center">
+            <button class="btn btn-info mb-3">
+                <a routerLink = "/register">Register</a>
+            </button>
+        </div>
+    </div>
+</div>
